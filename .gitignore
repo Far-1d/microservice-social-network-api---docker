@@ -1,0 +1,7 @@
+chat/
+kafka-data/
+monitoring/
+post/
+user/
+.env.docker
+structure.txt
