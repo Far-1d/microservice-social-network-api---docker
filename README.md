@@ -14,20 +14,20 @@
 
 ---
 
-## services
+## 🚦 services
 
-#### docker-compose.yml
-+ post ==Fastapi==
-+ user ==Django==
-+ user_consumer ==Django==
-+ redis ==redis==
-+ kafka ==confluentinc/cp-kafka==
+### docker-compose.yml
++ post <small>**Fastapi**</small>
++ user <small>**Django**</small>
++ user_consumer <small>**Django**</small>
++ redis <small>**redis**</small>
++ kafka <small>**confluentinc/cp-kafka**</small>
 
-#### docker-compose.monitoring.yml
-+ prometheus ==prom/prometheus==
-+ loki ==grafana/loki==
-+ promtail ==grafana/promtail==
-+ grafana ==grafana/grafana==
+### docker-compose.monitoring.yml
++ prometheus <small>**prom/prometheus**</small>
++ loki <small>**grafana/loki**</small>
++ promtail <small>**grafana/promtail**</small>
++ grafana <small>**grafana/grafana**</small>
 
 ---
 
@@ -91,7 +91,7 @@ Because two docker-compose files are used, and docker-compose.yml is started fir
 > ###### if you see the file naming is inconvenient feel free to rename them but be careful to also change their names in docker and config files
 
 
-## Setup Steps
+## ⚙️ Setup Steps
 
 ### 1. Install docker
 install docker from [docker](https://www.docker.com/get-started)
@@ -121,7 +121,7 @@ docker compose -f docker-compose.monitoring.yml up
 - GF_SECURITY_ADMIN_PASSWORD=admin
 ```
 
-## What You Get
+## 🤩 What You Get
 
 
 ### Fastapi and Django services
