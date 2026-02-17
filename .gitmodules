@@ -1,0 +1,9 @@
+[submodule "post/backend"]
+	path = post/backend
+	url = ./post/backend
+[submodule "user/backend"]
+	path = user/backend
+	url = ./user/backend
+[submodule "monitoring"]
+	path = monitoring
+	url = ./monitoring

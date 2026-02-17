@@ -1,7 +1,6 @@
 chat/
 kafka-data/
-monitoring/
-post/
-user/
+user/vite-front/
+post/frontend/
 .env.docker
 structure.txt
