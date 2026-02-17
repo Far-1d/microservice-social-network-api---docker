@@ -1,9 +1,9 @@
 [submodule "post/backend"]
 	path = post/backend
-	url = ./post/backend
+	url = https://github.com/Far-1d/microservice-social-network-api---fastapi
 [submodule "user/backend"]
 	path = user/backend
-	url = ./user/backend
+	url = https://github.com/Far-1d/microservice-social-network-api---django
 [submodule "monitoring"]
 	path = monitoring
-	url = ./monitoring
+	url = https://github.com/Far-1d/microservice-social-network-api---monitoring
