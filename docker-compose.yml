@@ -1,6 +1,22 @@
 version: '3.8'
 
 services:
+  postgres:
+    image: postgres:alpine3.22
+    container_name: postgres
+    env_file: "docker.env"
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
   post:
     build: ./post/backend
     container_name: post_service
@@ -11,11 +27,13 @@ services:
     networks:
       - app-network
     depends_on:
+      postgres:
+        condition: service_healthy
       kafka:
         condition: service_healthy    
       redis:
         condition: service_started  
-    env_file: ".env.docker"
+    env_file: "docker.env"
     restart: unless-stopped
 
   user:
@@ -30,9 +48,13 @@ services:
     networks:
       - app-network
     depends_on:
-      - redis
-      - kafka
-    env_file: ".env.docker"
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      kafka:
+        condition: service_started
+    env_file: "docker.env"
     restart: unless-stopped
   
   user_consumer:
@@ -45,7 +67,7 @@ services:
     depends_on:
       kafka:
         condition: service_healthy
-    env_file: ".env.docker"
+    env_file: "docker.env"
     restart: unless-stopped
 
   redis:
@@ -103,3 +125,4 @@ networks:
 volumes:
   kafka_data:
   cache:
+  postgres_data:
