@@ -4,7 +4,7 @@ services:
   postgres:
     image: postgres:alpine3.22
     container_name: postgres
-    env_file: "docker.env"
+    env_file: ".env"
     ports:
       - "5432:5432"
     networks:
@@ -33,7 +33,7 @@ services:
         condition: service_healthy    
       redis:
         condition: service_started  
-    env_file: "docker.env"
+    env_file: ".env"
     restart: unless-stopped
 
   user:
@@ -54,7 +54,7 @@ services:
         condition: service_started
       kafka:
         condition: service_started
-    env_file: "docker.env"
+    env_file: ".env"
     restart: unless-stopped
   
   user_consumer:
@@ -67,7 +67,7 @@ services:
     depends_on:
       kafka:
         condition: service_healthy
-    env_file: "docker.env"
+    env_file: ".env"
     restart: unless-stopped
 
   redis:
